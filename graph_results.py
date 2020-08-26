@@ -13,7 +13,7 @@ EVAL_ACC_IDX = 5
 SPLITTER = '?'
 
 # graph_results
-def graph_results(input_dirs="./saved_models/results", output_dir=None, model_names=None, epoch_start=0, epoch_end=None):
+def graph_results(input_dirs="/content/MusicTransformer-Pytorch/rpr/results", output_dir=None, model_names=None, epoch_start=0, epoch_end=None):
     """
     ----------
     Author: Damon Gwinn
