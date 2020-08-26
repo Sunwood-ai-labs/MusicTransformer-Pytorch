@@ -3,7 +3,7 @@ import torch.nn as nn
 import os
 import random
 
-from third_party.midi_processor.processor import decode_midi, encode_midi
+from processor import decode_midi, encode_midi
 
 from utilities.argument_funcs import parse_generate_args, print_generate_args
 from model.music_transformer import MusicTransformer
