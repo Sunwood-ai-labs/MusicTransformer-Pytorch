@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 import os
 import random
-
+import pretty_midi
 from processor import decode_midi, encode_midi
 
 from utilities.argument_funcs import parse_generate_args, print_generate_args
