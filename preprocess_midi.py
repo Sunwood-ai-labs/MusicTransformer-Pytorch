@@ -3,7 +3,7 @@ import os
 import pickle
 import json
 
-import third_party.midi_processor.processor as midi_processor
+import processor as midi_processor
 
 JSON_FILE = "maestro-v2.0.0.json"
 
