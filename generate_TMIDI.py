@@ -75,7 +75,7 @@ def main():
     model.load_state_dict(torch.load(args.model_weights))
 
     # Saving primer first
-    f_path = os.path.join(args.output_dir, "primer.mid")
+    f_path = os.path.join(args.output_dir, "primer")
     #decode_midi(primer[:args.num_prime].cpu().numpy(), file_path=f_path)
     x = primer[:args.num_prime].cpu().numpy()
     y = x.tolist()
