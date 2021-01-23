@@ -77,7 +77,12 @@ def main():
     # Saving primer first
     f_path = os.path.join(args.output_dir, "primer.mid")
     #decode_midi(primer[:args.num_prime].cpu().numpy(), file_path=f_path)
-
+    x = primer[:args.num_prime].cpu().numpy()
+    y = x.tolist()
+    z = TMIDI.Tegridy_INT_to_TXT_Converter(y)
+    SONG = TMIDI.Tegridy_Reduced_TXT_to_Notes_Converter(z, has_MIDI_channels=False, has_velocities=False)
+    stats = TMIDI.Tegridy_SONG_to_MIDI_Converter(SONG=SONG[0], output_file_name=f_path)
+    
     # GENERATION
     model.eval()
     with torch.set_grad_enabled(False):
@@ -92,7 +97,7 @@ def main():
             z = TMIDI.Tegridy_INT_to_TXT_Converter(y)
             SONG = TMIDI.Tegridy_Reduced_TXT_to_Notes_Converter(z, has_MIDI_channels=False, has_velocities=False)
             stats = TMIDI.Tegridy_SONG_to_MIDI_Converter(SONG=SONG[0], output_file_name=f_path)
-
+            print(stats)
 
         else:
             print("RAND DIST")
@@ -106,6 +111,7 @@ def main():
             z = TMIDI.Tegridy_INT_to_TXT_Converter(y)
             SONG = TMIDI.Tegridy_Reduced_TXT_to_Notes_Converter(z, has_MIDI_channels=False, has_velocities=False)
             stats = TMIDI.Tegridy_SONG_to_MIDI_Converter(SONG=SONG[0], output_file_name=f_path)
+            print(stats)
 
 
 
