@@ -95,8 +95,15 @@ def main():
             x = beam_seq[0].cpu().numpy()
             y = x.tolist()
             z = TMIDI.Tegridy_INT_to_TXT_Converter(y)
-            SONG = TMIDI.Tegridy_Reduced_TXT_to_Notes_Converter(z, has_MIDI_channels=False, has_velocities=False)
-            stats = TMIDI.Tegridy_SONG_to_MIDI_Converter(SONG=SONG[0], output_file_name=f_path)
+            SONG, song_name = TMIDI.Tegridy_Optimus_TXT_to_Notes_Converter(z, 
+                                                                has_MIDI_channels=False, 
+                                                                simulate_velocity=False,
+                                                                char_encoding_offset=33,
+                                                                save_only_first_composition=True,
+                                                                dataset_MIDI_events_time_denominator=10,
+                                                                has_velocities=True
+                                                                )
+            stats = TMIDI.Tegridy_SONG_to_MIDI_Converter(SONG=SONG, output_file_name=f_path)
             print(stats)
 
         else:
@@ -109,8 +116,16 @@ def main():
             x = rand_seq[0].cpu().numpy()
             y = x.tolist()
             z = TMIDI.Tegridy_INT_to_TXT_Converter(y)
-            SONG = TMIDI.Tegridy_Reduced_TXT_to_Notes_Converter(z, has_MIDI_channels=False, has_velocities=False)
-            stats = TMIDI.Tegridy_SONG_to_MIDI_Converter(SONG=SONG[0], output_file_name=f_path)
+            #SONG = TMIDI.Tegridy_Reduced_TXT_to_Notes_Converter(z, has_MIDI_channels=False, has_velocities=False)
+            SONG, song_name = TMIDI.Tegridy_Optimus_TXT_to_Notes_Converter(z, 
+                                                                has_MIDI_channels=False, 
+                                                                simulate_velocity=False,
+                                                                char_encoding_offset=33,
+                                                                save_only_first_composition=True,
+                                                                dataset_MIDI_events_time_denominator=10,
+                                                                has_velocities=True
+                                                                )
+            stats = TMIDI.Tegridy_SONG_to_MIDI_Converter(SONG=SONG, output_file_name=f_path)
             print(stats)
 
 
