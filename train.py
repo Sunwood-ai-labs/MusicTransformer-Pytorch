@@ -64,7 +64,7 @@ def main():
     else:
         from torch.utils.tensorboard import SummaryWriter
 
-        tensorboad_dir = os.path.join(args.output_dir, "tensorboard")
+        tensorboad_dir = os.path.join("output", "tensorboard")
         tensorboard_summary = SummaryWriter(log_dir=tensorboad_dir)
 
     ##### Datasets #####
